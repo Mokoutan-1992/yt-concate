@@ -1,12 +1,16 @@
+from yt_concate.pipeline.steps.preflight import Preflight
 from yt_concate.pipeline.steps.get_video_list import GetVideoList
+from yt_concate.pipeline.steps.download_captions import DownloadCaptions
+from yt_concate.pipeline.steps.read_caption import ReadCaption
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.pipeline.pipeline import Pipeline
-from yt_concate.pipeline.steps.preflight import Preflight
-from yt_concate.pipeline.steps.postflight import Postflight
-from yt_concate.pipeline.steps.download_captions import DownloadCaptions
+
 from yt_concate.utils import Utils
+from yt_concate.pipeline.steps.postflight import Postflight
 
 CHANNEL_ID = 'UCJsN2KCAD7qkA6-fOeB2fOw'  # MGear
+
+
 # CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'  # Supercar Blondie
 
 
@@ -19,6 +23,7 @@ def main():
         Preflight(),
         GetVideoList(),
         DownloadCaptions(),
+        ReadCaption(),
         Postflight(),
     ]
 
